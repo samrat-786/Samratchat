@@ -11,18 +11,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+<<<<<<< HEAD
       - uses: actions/checkout@v4
 
       - name: Set up Java
+=======
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+>>>>>>> 694a024 (Add GitHub Actions workflow)
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
+<<<<<<< HEAD
       - name: Make Gradle executable
         run: chmod +x gradlew
 
       - name: Build APK
+=======
+      - name: Grant execute permission
+        run: chmod +x gradlew
+
+      - name: Build Debug APK
+>>>>>>> 694a024 (Add GitHub Actions workflow)
         run: ./gradlew assembleDebug
 
       - name: Upload APK

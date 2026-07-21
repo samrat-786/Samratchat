@@ -28,8 +28,13 @@ public class MainActivity extends Activity {
         webSettings.setBuiltInZoomControls(false);
         webSettings.setDisplayZoomControls(false);
 
-        mWebView.setWebViewClient(new WebViewClient());
+        mWebView.setWebViewClient(new MyAppWebViewClient());
+mWebView.clearCache(true);
+mWebView.clearHistory();
 
+if (android.os.Build.VERSION.SDK_INT >= 21) {
+    webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+}
         mWebView.loadUrl("https://samrat-chat.onrender.com");
     }
 
